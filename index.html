@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Mike's Shopping Cart</title>
+    <link rel=StyleSheet href="ShoppingCart.css" type="text/css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="ShoppingCart.js" type="text/javascript"></script>
+</head>
+
+<body>
+    
+    <!-- Viewed Header for page -->
+    <div class="cart-header">
+        <div class="cart-header-title">
+            <h1>Mister Pouch's Shopping Cart</h1>
+        </div>
+        <div class="row header">
+            <div class="column actionblock pad">
+                <div class="panel">Action</div>
+            </div>
+            <div class="column ">
+                <div class="panel">Item Description</div>
+            </div>
+            <div class="column ">
+                <div class="panel">Unit Price</div>
+            </div>
+            <div class="column ">
+                <div class="panel">Quantity</div>
+            </div>
+            <div class="column ">
+                <div class="panel">Total</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Template of rows for editing and viewing -->
+    <div class="cart-template">
+        <div class="row viewed">
+            <div class="column actionblock">
+                <a href="#" class="ibutton delete" title="Delete Item">.</a>
+                <a href="#" class="ibutton edit" title="Edit Item">.</a>
+                <a href="#" class="ibutton hold" title="Put Item On Hold">.</a>
+            </div>
+            <div class="column">
+                <span class="item">Sample Item 1</span>
+            </div>
+            <div class="column">
+                <span class="unitprice">$2.99</span>
+            </div>
+            <div class="column">
+                <span class="quantity">2</span>
+            </div>
+            <div class="column">
+                <span class="subtotal">$5.98</span>
+            </div>
+        </div>
+        <div class="row viewed">
+            <div class="column actionblock">
+               <a href="#" class="ibutton delete" title="Delete Item">.</a>
+               <a href="#" class="ibutton edit" title="Edit Item">.</a>
+               <a href="#" class="ibutton hold" title="Put Item On Hold">.</a>
+            </div>
+            <div class="column ">
+                <span class="item">Sample Item 2: Chicken or the Egg: Testing multi-row descriptions</span>
+            </div>
+            <div class="column ">
+                <span class="unitprice">$3.49</span>
+            </div>
+            <div class="column ">
+                <span class="quantity">4</span>
+            </div>
+            <div class="column ">
+                <span class="subtotal">$13.96</span>
+            </div>
+        </div>
+        <div class="row edited">
+            <div class="column actionblock">
+                <a href="#" class="button update">Update</a>
+                <a href="#" class="button cancel">Cancel</a>
+            </div>
+            <div class="column ">
+                <input class="edititem" type="text" value="Desc" />
+            </div>
+            <div class="column ">
+                $ <input class="editunitprice" type="number" value=2.25 />
+            </div>
+            <div class="column ">
+                <input class="editquantity" type="number" value=1 />
+            </div>
+            <div class="column pad">.</div>
+        </div>
+    </div>
+    
+    <!-- Dynamic list of cart items, based on templates for page -->
+    <div class="cart-list">
+    </div>
+    
+    <!-- Cart totals displayed here -->
+    <div class="cart-total">
+        <div class="row totals">
+            <div class="column actionblock pad">.</div><div class="column pad">.</div><div class="column pad">.</div>
+            <div class="column totalcaption">
+                <span>Subtotal: </span>
+            </div>
+            <div class="column ">
+                <span class="total-subtotals">$19.94</span>
+            </div>
+        </div>
+        <div class="row totals">
+            <div class="column actionblock pad">.</div><div class="column pad">.</div><div class="column pad">.</div>
+            <div class="column totalcaption">
+                <span>Tax: </span>
+                [<span class="total-taxstate">MD</span>]: 
+            </div>
+            <div class="column ">
+                <span class="total-tax">$19.94*0.06</span>
+            </div>
+        </div>
+        <div class="row totals">
+            <div class="column actionblock pad">.</div><div class="column pad">.</div><div class="column pad">.</div>
+            <div class="column totalcaption">
+                <span>Purchase Price: </span>
+            </div>
+            <div class="column ">
+                <span class="total-purchase">$19.94 + (19.94*0.06)</span>
+            </div>
+        </div>
+        <div class="row totals">
+            <div class="column actionblock pad">.</div><div class="column pad">.</div><div class="column pad">.</div><div class="column pad">.</div>
+            <div class="column ">
+                <a href="#" class="button proceed">Proceed to Checkout</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

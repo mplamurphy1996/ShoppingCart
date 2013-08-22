@@ -1,0 +1,178 @@
+/* Shopping cart */
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/* End Public domain */
+
+.cart-header {
+	display: block;
+	position: relative;
+	border-bottom: 1px solid #f2c288;
+}
+
+.cart-header-title {
+	display: table;
+	position: relative;
+	margin: 0.33em;
+	width: 100%;
+	text-align: center;
+	background: url('images/cart-b32.png') no-repeat;
+	font-size: 2.5em;
+}
+
+.cart-list, .cart-template {
+	display: table;
+	position: relative;
+	width: 100%;
+}
+
+.cart-template {
+	display: none;
+	/*visibility:hidden; /* WILL BE CHANGING THIS */
+	background-color: yellow; /* FOR DEBUG */
+}
+
+.cart-total {
+	display: table;
+	position: relative;
+	width: 100%;
+	border-top: 1px solid #f2c9c9;
+}
+
+h1 {
+	color: orange;
+	font: 22px bold, Helvetica, sans-serif;
+}
+.row {
+	display: table;
+	position: relative;
+	width: 100%;
+	margin: 0.75em auto 0;
+	max-width: 75em;
+}
+
+.column {
+	position: relative;
+	float: left;
+	width: 17%;
+	text-align: center;
+}
+  
+.panel {
+	border-style: solid;
+	border-width: 1px;
+	border-color: #f2c288;
+	padding: 0.25em;
+	background: #f2f288;
+	text-align: center;
+}
+
+.actionblock {
+	position: relative;
+	width: 10%;
+}
+
+.button, .ibutton {
+	display: inline-block;
+	position: relative;
+	border-style: solid;
+	border-width: 1px;
+	border-radius: 5px;
+	cursor: pointer;
+	font-family: inherit;
+	font-weight: bold;
+	line-height: 1;
+	margin: 0 0 0.25em;
+	text-decoration: none;
+	text-align: center;
+	padding: 0.33em 0.66em;
+	font-size: 0.75em;
+	background-color: #2ba6cb;
+	border-color: #2284a1;
+	color: white;
+}
+.button:hover {
+	background: #2284a1;
+}
+
+.pad {
+	visibility: hidden;
+}
+
+.totalcaption {
+	font-weight: bold;
+	text-align: right;
+	margin-right: 0.50em;
+	/*border: 1px solid #2266aa;*/
+}
+
+.ibutton {
+	border-style: none;
+}
+
+.edit {
+	background: url('images/edit16.png') no-repeat;
+}
+.delete {
+	background: url('images/trash16.png') no-repeat;
+}
+
+.hold {
+	background: url('images/hold16.png') no-repeat;
+}
+
+.total-purchase {
+	font-size: large;
+	font-weight: bold;
+	color: #aa0000;
+}
+
+/*.proceed {
+	background-color: #44c244; 
+}
+*/
