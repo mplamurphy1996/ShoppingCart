@@ -65,15 +65,19 @@ table {
 	font-size: 2.5em;
 }
 
-.cart-list, .cart-template {
+.cart-list, .cart-template, .cart-edit {
 	display: table;
 	position: relative;
 	width: 100%;
 }
+.cart-edit {
+	border-bottom: 1px solid #f2c288;
+}
 
 .cart-template {
+	/* VISIBLE ONLY IN DEBUG. WHEN LIVE, HIDE THIS */
+	/*visibility:hidden;*/
 	display: none;
-	/*visibility:hidden; /* WILL BE CHANGING THIS */
 	background-color: yellow; /* FOR DEBUG */
 }
 
@@ -161,7 +165,6 @@ h1 {
 .delete {
 	background: url('images/trash16.png') no-repeat;
 }
-
 .hold {
 	background: url('images/hold16.png') no-repeat;
 }
@@ -172,7 +175,7 @@ h1 {
 	color: #aa0000;
 }
 
-/*.proceed {
-	background-color: #44c244; 
+.onhold {
+	background-color: #aaaaaa;
+	color: #eeeeee;
 }
-*/

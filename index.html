@@ -11,8 +11,8 @@
 <body>
     
     <!-- Viewed Header for page -->
-    <div class="cart-header">
-        <div class="cart-header-title">
+    <div class="page-section cart-header">
+        <div class="cart-header-title" title="Click Shopping Cart To Initialize Sample Data">
             <h1>Mister Pouch's Shopping Cart</h1>
         </div>
         <div class="row header">
@@ -35,12 +35,13 @@
     </div>
     
     <!-- Template of rows for editing and viewing -->
-    <div class="cart-template">
+    <div class="page-section cart-template">
         <div class="row viewed">
             <div class="column actionblock">
                 <a href="#" class="ibutton delete" title="Delete Item">.</a>
                 <a href="#" class="ibutton edit" title="Edit Item">.</a>
-                <a href="#" class="ibutton hold" title="Put Item On Hold">.</a>
+                <a href="#" class="ibutton hold" title="Put Item On Layaway">.</a>
+                <a href="#" class="ibutton invisible" style="visibility: hidden">.</a>
             </div>
             <div class="column">
                 <span class="item">Sample Item 1</span>
@@ -55,7 +56,7 @@
                 <span class="subtotal">$5.98</span>
             </div>
         </div>
-        <div class="row viewed">
+<!--        <div class="row viewed">
             <div class="column actionblock">
                <a href="#" class="ibutton delete" title="Delete Item">.</a>
                <a href="#" class="ibutton edit" title="Edit Item">.</a>
@@ -80,31 +81,55 @@
                 <a href="#" class="button cancel">Cancel</a>
             </div>
             <div class="column ">
-                <input class="edititem" type="text" value="Desc" />
+                <input class="edititem" type="text" value="Item Description" />
             </div>
             <div class="column ">
-                $ <input class="editunitprice" type="number" value=2.25 />
+                $ <input class="editunitprice" type="number" min="0.00" value=22.55 />
             </div>
             <div class="column ">
-                <input class="editquantity" type="number" value=1 />
+                <input class="editquantity" type="number" min="1" value=4 />
             </div>
-            <div class="column pad">.</div>
+            <div class="column ">
+                <input class="editonhold" type="checkbox">Layaway</input>
+            </div>
+        </div>-->
+    </div>
+        
+    <!-- location for edit controls -->
+    <div class="page-section cart-edit">
+        <div class="row edited">
+            <div class="column actionblock">
+                <a href="#" class="button update">Add</a>
+                <a href="#" class="button cancel">Cancel</a>
+            </div>
+            <div class="column ">
+                <input class="edititem" type="text" value="Enter item here" />
+            </div>
+            <div class="column ">
+                $ <input class="editunitprice" type="number" min="0.00" value=22.55 />
+            </div>
+            <div class="column ">
+                <input class="editquantity" type="number" min="1" value=4 />
+            </div>
+            <div class="column ">
+                <input class="editonhold" type="checkbox">Layaway</input>
+            </div>
         </div>
     </div>
     
     <!-- Dynamic list of cart items, based on templates for page -->
-    <div class="cart-list">
+    <div class="page-section cart-list">
     </div>
     
     <!-- Cart totals displayed here -->
-    <div class="cart-total">
+    <div class="page-section cart-total">
         <div class="row totals">
             <div class="column actionblock pad">.</div><div class="column pad">.</div><div class="column pad">.</div>
             <div class="column totalcaption">
                 <span>Subtotal: </span>
             </div>
             <div class="column ">
-                <span class="total-subtotals">$19.94</span>
+                <span class="total-subtotals">$0.00</span>
             </div>
         </div>
         <div class="row totals">
@@ -114,7 +139,7 @@
                 [<span class="total-taxstate">MD</span>]: 
             </div>
             <div class="column ">
-                <span class="total-tax">$19.94*0.06</span>
+                <span class="total-tax">$0.00</span>
             </div>
         </div>
         <div class="row totals">
@@ -123,7 +148,7 @@
                 <span>Purchase Price: </span>
             </div>
             <div class="column ">
-                <span class="total-purchase">$19.94 + (19.94*0.06)</span>
+                <span class="total-purchase">$0.00</span>
             </div>
         </div>
         <div class="row totals">
