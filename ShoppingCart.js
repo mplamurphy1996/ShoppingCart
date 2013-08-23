@@ -77,7 +77,6 @@ $(document).ready(function() {
     };
     
     /* THE CART !!!*/
-    //var _salescart = new SalesCart(new SaleItem(DEF_DESC, DEF_PRICE, DEF_QTY, false), DEF_STATE, DEF_RATE); // init with no list
     //var _salescart = new SalesCart(new Array(_defaultitem), DEF_STATE, DEF_RATE); // init with no list
     var _salescart = new SalesCart(new Array(), DEF_STATE, DEF_RATE); // init with no list
     
@@ -350,6 +349,10 @@ $(document).ready(function() {
             // (onhold=false) grey out, strike through, remove subtotal
            (onhold) ? pagerow.addClass("onhold") : pagerow.removeClass("onhold");// Set hold flag on html
             SetRowButtonVisibility(pagerow, !onhold, !onhold, true); // set button visibility: HOLD button STAYS ON!
+            if (onhold) {
+                pagerow.find(".subtotal").text("Layaway for Future Purchase"); // set Layaway message
+            }
+            
         }
     }
     
