@@ -106,11 +106,11 @@ table {
 .column {
 	position: relative;
 	float: left;
-	width: 12.5%;
+	width: 15%;
 	text-justify: inter-word;
 }
 .itemc {
-	width: 40%;
+	width: 35%;
 }
 .panel {
 	border-style: solid;
@@ -125,7 +125,7 @@ table {
 
 .actionblock {
 	position: relative;
-	width: 12.5%;
+	width: 15%;
 }
 
 .button, .ibutton {
