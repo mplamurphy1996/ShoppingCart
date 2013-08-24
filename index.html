@@ -13,13 +13,14 @@
     <!-- Viewed Header for page -->
     <div class="page-section cart-header">
         <div class="cart-header-title" title="Click Shopping Cart To Initialize Sample Data">
+            <div class="column actionblock pad">.</div>
             <h1>Mister Pouch's Shopping Cart</h1>
         </div>
         <div class="row header">
             <div class="column actionblock pad">
                 <div class="panel">Action</div>
             </div>
-            <div class="column ">
+            <div class="column itemc">
                 <div class="panel">Item Description</div>
             </div>
             <div class="column ">
@@ -41,9 +42,9 @@
                 <a href="#" class="ibutton delete" title="Delete Item">.</a>
                 <a href="#" class="ibutton edit" title="Edit Item">.</a>
                 <a href="#" class="ibutton hold" title="Put Item On Layaway">.</a>
-                <a href="#" class="ibutton invisible" style="visibility: hidden">.</a>
+<!--                <a href="#" class="ibutton invisible" style="visibility: hidden">.</a>-->
             </div>
-            <div class="column">
+            <div class="column itemc">
                 <span class="item">Sample Item 1</span>
             </div>
             <div class="column">
@@ -102,14 +103,15 @@
                 <a href="#" class="button update">Add</a>
                 <a href="#" class="button cancel">Cancel</a>
             </div>
-            <div class="column ">
-                <input class="edititem" type="text" value="Enter item here" />
+            <div class="column itemc">
+                <!-- <textarea class="edititem" rows="2" placeholder="Enter item here"></textarea> -->
+                <input class="edititem" size="60" placeholder="Enter item here"></input>
             </div>
             <div class="column ">
-                $ <input class="editunitprice" type="number" min="0.00" value=0 />
+                $<input class="editunitprice" size="20" type="number" min="0.00" max="1000000.00" value=0 />
             </div>
             <div class="column ">
-                <input class="editquantity" type="number" min="1" value=1 />
+                <input class="editquantity" type="number" min="1" max="1000000" step="1" value=1 />
             </div>
             <div class="column ">
                 <input class="editonhold" type="checkbox">Layaway</input>
@@ -124,7 +126,7 @@
     <!-- Cart totals displayed here -->
     <div class="page-section cart-total">
         <div class="row totals">
-            <div class="column actionblock pad">.</div><div class="column pad">.</div><div class="column pad">.</div>
+            <div class="column actionblock pad">.</div><div class="column itemc pad">.</div><div class="column pad">.</div>
             <div class="column totalcaption">
                 <span>Subtotal: </span>
             </div>
@@ -133,7 +135,7 @@
             </div>
         </div>
         <div class="row totals">
-            <div class="column actionblock pad">.</div><div class="column pad">.</div><div class="column pad">.</div>
+            <div class="column actionblock pad">.</div><div class="column itemc pad">.</div><div class="column pad">.</div>
             <div class="column totalcaption">
                 <span>Tax: </span>
                 [<span class="total-taxstate">MD</span>]: 
@@ -143,7 +145,7 @@
             </div>
         </div>
         <div class="row totals">
-            <div class="column actionblock pad">.</div><div class="column pad">.</div><div class="column pad">.</div>
+            <div class="column actionblock pad">.</div><div class="column itemc pad">.</div><div class="column pad">.</div>
             <div class="column totalcaption">
                 <span>Purchase Price: </span>
             </div>
@@ -152,7 +154,7 @@
             </div>
         </div>
         <div class="row totals">
-            <div class="column actionblock pad">.</div><div class="column pad">.</div><div class="column pad">.</div><div class="column pad">.</div>
+            <div class="column actionblock pad">.</div><div class="column itemc pad">.</div><div class="column pad">.</div><div class="column pad">.</div>
             <div class="column ">
                 <a href="#" class="button proceed">Proceed to Checkout</a>
             </div>

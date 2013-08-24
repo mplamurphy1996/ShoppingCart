@@ -1,5 +1,4 @@
 $(document).ready(function() {
-
     /*** User Events ***/
     /* Initialize Page */
     $(".cart-header-title").on("click", function() {
@@ -26,24 +25,41 @@ $(document).ready(function() {
     
     /* Edit Item */
     $(".edit").on("click", function() {
-        //alert("Edit the row item. Replace report row with editbox row.");
-        TEST_DEBUG("editboxin", this);
+        var idx = GetSelectedRowNumber(this); //1th element
+        var elemrow = GetPageRow(idx-1); // pass 0th-element
+        _selectedRow = elemrow; ////// THIS IS TO KEEP TRACK OF THE SELECTED ROW !!!!!!
+        SetEditStyle(true);
+        var item = CopyPageRowToItem(elemrow, null);
+        
+        var editrow = GetEditRow($(".update"));
+        CopyItemToEditRow(item, editrow);
     });
 
-    /* Update Item */
+    /* Update Item and Add Item */
     $(".update").on("click", function() {
-        //alert("Accept the Edit. Replace the editbox row with the report row. \n\n RIGHT NOW: TESTING ITEM ADDS!!!");
+        var elemrow = GetEditRow($(".update")); // pass 0th-element
+        var item = CopyEditRowToItem(elemrow, null);
+        ClearEditRow(elemrow);
+        
         if (InEditMode()) {
-            TEST_DEBUG("editboxout_editrow", _selectedRow);
+            var idx = GetSelectedRowNumber(_selectedRow); //1th element
+            EditItemInCart(_salescart, idx-1, item);
         } else {
-            TEST_DEBUG("editboxout_addrow", ($(this).closest(".page-section").find(".edit")));
+            AddItemToCart(_salescart, item);
         }
+        
+        UpdateCartPage(_salescart);
+        SetEditStyle(false);
+        _selectedRow = null; ////// THIS IS TO KEEP TRACK OF THE SELECTED ROW !!!!!!
     });
 
     /* Cancel Item */
     $(".cancel").on("click", function() {
-        //alert("Cancel the Edit. Replace the editbox row with the report row.");
-        TEST_DEBUG("editboxout_cancel");
+        var editrow = GetEditRow($(".update"));
+        ClearEditRow(editrow);
+        UpdateCartPage(_salescart);
+        SetEditStyle(false);
+        _selectedRow = null; ////// THIS IS TO KEEP TRACK OF THE SELECTED ROW !!!!!!
     });
     
     /* Proceed to Checkout */
@@ -61,6 +77,7 @@ $(document).ready(function() {
     var DEF_QTY = 1;
     var DEF_STATE = "TX";
     var DEF_RATE = 6.25;
+    var LAYAWAY = "Layaway for Future Purchase";
     
     function SaleItem(desc, price, quan, hold) {
         this.description = desc;
@@ -160,9 +177,9 @@ $(document).ready(function() {
         $(".cart-edit").find(".update").text((editmode) ? MODE_UPDATE : MODE_ADD);
         
         // stylize the editing row
-        (editmode) ? _selectedRow.css({"background" : "#f24242", "color" : "#ffffff" }) :   // pink 
-                        _selectedRow.css({"background" : "#ffffff", "color" : "#000000"  }) // white
-          
+        (editmode) ?    _selectedRow.css({ "background":"#f24242", "color":"#ffffff", "opacity":"0.1" }) :  // pink back, white text, opaque
+                        _selectedRow.css({ "background":"#ffffff", "color":"#000000", "opacity":"1.0" });   // white back, black text, solid
+        
         // set ALL buttons on or off
         SetRowButtonVisibility(_selectedRow, !editmode, !editmode, !editmode);
     }
@@ -350,7 +367,7 @@ $(document).ready(function() {
            (onhold) ? pagerow.addClass("onhold") : pagerow.removeClass("onhold");// Set hold flag on html
             SetRowButtonVisibility(pagerow, !onhold, !onhold, true); // set button visibility: HOLD button STAYS ON!
             if (onhold) {
-                pagerow.find(".subtotal").text("Layaway for Future Purchase"); // set Layaway message
+                pagerow.find(".subtotal").text(LAYAWAY); // set Layaway message
             }
             
         }
@@ -359,9 +376,13 @@ $(document).ready(function() {
     /* Control of buttons to be on or off */
     function SetRowButtonVisibility(pagerow, btndelete, btnedit, btnhold) {
         if (pagerow!= null) {
-            (btndelete) ? pagerow.find(".delete").show() : pagerow.find(".delete").hide();
-            (btnedit) ? pagerow.find(".edit").show() : pagerow.find(".edit").hide();
-            (btnhold) ? pagerow.find(".hold").show() : pagerow.find(".hold").hide();
+            //(btndelete) ? pagerow.find(".delete").show() : pagerow.find(".delete").hide();
+            //(btnedit) ? pagerow.find(".edit").show() : pagerow.find(".edit").hide();
+            //(btnhold) ? pagerow.find(".hold").show() : pagerow.find(".hold").hide();
+            
+            (btndelete) ? pagerow.find(".delete").css({"visibility" : "visible"}) : pagerow.find(".delete").css({"visibility" : "hidden"});
+            (btnedit) ? pagerow.find(".edit").css({"visibility" : "visible"}) : pagerow.find(".edit").css({"visibility" : "hidden"});
+            (btnhold) ? pagerow.find(".hold").css({"visibility" : "visible"}) : pagerow.find(".hold").css({"visibility" : "hidden"});
         }
     }
        
